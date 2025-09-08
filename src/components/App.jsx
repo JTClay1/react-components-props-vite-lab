@@ -1,15 +1,21 @@
-import React from "react";
-import blogData from "../data/blog";
+import React from "react"; // import framework
+import Header from "./Header";   // import Header component
+import About from "./About";     // import About component
+import ArticleList from "./ArticleList"; // import ArticleList component
 
-console.log(blogData);
+import blogData from "../data/blog"; // import blog data source
 
 function App() {
+  // destructure blogData into local variables
+  const { name, image, about, posts } = blogData;
+
   return (
-    <div className="App">
-      You're on your own from here! Follow the deliverables; test things out in
-      the browser as you write your code; and good luck!
-    </div>
+    <>
+      <Header name={name} />              {/* pass blog name to Header */}
+      <About image={image} about={about} /> {/* pass image + about text to About */}
+      <ArticleList posts={posts} />         {/* pass posts array to ArticleList */}
+    </>
   );
 }
 
-export default App;
+export default App; // export App as root component
